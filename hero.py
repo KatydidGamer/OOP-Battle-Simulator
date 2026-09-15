@@ -7,8 +7,8 @@ class Hero:
 
     def attack(self):
         damage= 10
-        Crit = 5
-        if random.randint(1, 6) == 4:
+        Crit = random.randint(1,10)
+        if random.randint(1, 6) == 6:
             return Crit+damage
         else:
             return damage 

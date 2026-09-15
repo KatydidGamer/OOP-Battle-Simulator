@@ -3,6 +3,17 @@ from hero import Hero
 
 
 ARENA_NAME = "Gibbles Grand Guesthouse"
+def battle(hero: Hero,enemy: Goblin):
+    while hero.is_alive() and enemy.is_alive():
+        hero_dam= hero.attack()
+        enemy.take_damage(hero_dam)
+        if enemy.is_alive():
+            enemy_dm= enemy.attack()
+            hero.take_damage(enemy_dm)
+    if hero.is_alive():
+        print(f"{hero.name} wins!")
+    else:
+        print(f"{enemy.name} wins!")
 
 
 def main():
@@ -19,16 +30,8 @@ def main():
 
     print(f"{newgoblin.name} enters the arena with {newgoblin.health} health.")
 
-    print("But no hero has answered the call... yet.")
     bob = Hero("lora")
     print(f"{bob.name} enters the arena with {bob.health} health.")
-    LoraAttack = bob.attack()
-    goblin.take_damage(LoraAttack)
-    if goblin.is_alive:
-        goboattk= goblin.attack()
-        bob.take_damage(goboattk)
-    else:
-        print ("You defeted the Goblin!!")
-
+    battle(bob,goblin)
 if __name__ == "__main__":
     main()
